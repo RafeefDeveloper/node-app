@@ -2,10 +2,12 @@ const express = require("express");
 const bookpath = require("./routes/books");
 const authorpath = require("./routes/authors");
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+dotenv.config();
 
 //connect database
 mongoose
-  .connect("mongodb://127.0.0.1:27017/storeDB")
+  .connect(process.env.MONGO_URI)
   .then(() => console.log("database connected"))
   .catch((err) => console.log(err));
 
