@@ -2,6 +2,7 @@ const express = require("express");
 const bookpath = require("./routes/books");
 const authorpath = require("./routes/authors");
 const authpath = require("./routes/auth");
+const usersPath = require("./routes/users");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const logger = require("./middleware/logger");
@@ -26,6 +27,7 @@ app.use(logger);
 app.use("/api/books", bookpath);
 app.use("/api/authors", authorpath);
 app.use("/api/auth", authpath);
+app.use("/api/users", usersPath);
 
 app.use(notFoundError);
 app.use(errorHandler);
